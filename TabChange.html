@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<style>
+
+.iftab{
+  width: 60%;
+  border: 1px solid black;
+}
+
+.tabs{
+  display: flex;
+  font-size: 20px;
+  
+}
+
+.tab{
+  width: 33.33%;
+  border-bottom: 1px solid black;
+}
+
+.tab:not(:last-child){
+    border-right: 1px solid black;
+}
+
+.content{
+  font-size: 40px;
+}
+
+.active{
+  background-color: black;
+  color: white;
+}
+
+</style>
+
+</head>
+
+<body>
+  <div id="app">
+    <h2>タブ切り替え</h2>
+    <div class="iftab">
+      <div class="tabs">
+        <div class="tab" @click="iftabValue = 1" :class="{'active': iftabValue === 1}">タブ１</div>
+        <div class="tab" @click="iftabValue = 2" :class="{'active': iftabValue === 2}">タブ２</div>
+        <div class="tab" @click="iftabValue = 3" :class="{'active': iftabValue === 3}">タブ３</div>
+      </div>
+      <div class="content" v-if="iftabValue === 1">コンテンツ１</div>
+      <div class="content" v-else-if="iftabValue === 2">コンテンツ２</div>
+      <div class="content" v-else-if="iftabValue === 3">コンテンツ３</div>
+    </div>
+  </div>
+
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      iftabValue: 1,
+    }
+  })
+    </script>
+</body>
+
+
+
+
+</html>
